@@ -1,0 +1,141 @@
+/* ─── Global Reset & Base ─────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f8fafc;
+  color: #1e293b;
+  min-height: 100vh;
+}
+
+/* ─── Navbar ─────────────────────────────────────────────────── */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.navbar .logo { 
+  font-size: 1.5rem; 
+  font-weight: 800; 
+  color: #dc2626; 
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #475569;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active {
+  color: #dc2626;
+}
+.btn-nav {
+  background: #dc2626; color: #fff !important; 
+  padding: 8px 16px; border-radius: 6px; 
+  transition: background 0.2s;
+}
+.btn-nav:hover { background: #b91c1c; }
+
+/* ─── Page Wrapper ───────────────────────────────────────────── */
+.page { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+.page-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; color: #0f172a; text-align: center; }
+.page-subtitle { color: #64748b; margin-bottom: 40px; font-size: 1.1rem; text-align: center; }
+
+/* ─── Forms & Cards ─────────────────────────────────────────────── */
+.form-wrapper {
+  display: flex; justify-content: center; align-items: center;
+  padding: 20px 0;
+}
+.card {
+  background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px;
+  padding: 40px; width: 100%; max-width: 500px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+.card.wide { max-width: 700px; }
+.card h2 { font-size: 1.8rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; text-align: center; }
+.card p { color: #64748b; font-size: 0.95rem; margin-bottom: 28px; text-align: center; }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 0.9rem; font-weight: 500; color: #475569; margin-bottom: 8px; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; padding: 12px 16px; border-radius: 8px;
+  border: 1px solid #cbd5e1; background: #f8fafc;
+  color: #1e293b; font-size: 0.95rem; outline: none;
+  transition: all 0.2s; font-family: inherit;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { 
+  border-color: #dc2626; box-shadow: 0 0 0 3px rgba(220,38,38,0.1); background: #ffffff;
+}
+
+.btn-primary {
+  width: 100%; padding: 14px; background: #dc2626; color: #ffffff;
+  border: none; border-radius: 8px; font-size: 1.05rem; font-weight: 600;
+  cursor: pointer; transition: background 0.2s; margin-top: 12px;
+}
+.btn-primary:hover { background: #b91c1c; }
+
+/* ─── Hero Section ─────────────────────────────────────────────── */
+.hero {
+  text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%);
+  border-radius: 20px; margin-bottom: 40px; border: 1px solid #fee2e2;
+}
+.hero h1 { font-size: 3rem; color: #dc2626; margin-bottom: 16px; font-weight: 800; }
+.hero p { font-size: 1.2rem; color: #475569; max-width: 600px; margin: 0 auto 30px; line-height: 1.6; }
+.hero-btns { display: flex; gap: 16px; justify-content: center; }
+.btn-outline {
+  padding: 14px 28px; background: transparent; color: #dc2626;
+  border: 2px solid #dc2626; border-radius: 8px; font-size: 1.05rem; font-weight: 600;
+  cursor: pointer; transition: all 0.2s; text-decoration: none;
+}
+.btn-outline:hover { background: #fef2f2; }
+.hero-btns .btn-primary { width: auto; margin: 0; padding: 14px 28px; text-decoration: none; }
+
+/* ─── Donor List ─────────────────────────────────────────────── */
+.donors-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px;
+}
+.donor-card {
+  background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px;
+  padding: 24px; position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-top: 4px solid #dc2626;
+}
+.donor-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
+.donor-blood {
+  position: absolute; top: 20px; right: 20px;
+  background: #fef2f2; color: #dc2626; font-weight: 800; font-size: 1.2rem;
+  width: 48px; height: 48px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; border: 2px solid #fca5a5;
+}
+.donor-info h3 { font-size: 1.2rem; font-weight: 700; color: #0f172a; margin-bottom: 8px; padding-right: 50px; }
+.donor-info p { color: #64748b; font-size: 0.9rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+.donor-info strong { color: #475569; }
+
+/* ─── Helpers ─────────────────────────────────────────────── */
+.success-msg {
+  background: #dcfce7; color: #166534; padding: 16px; border-radius: 8px;
+  border: 1px solid #bbf7d0; margin-bottom: 20px; font-weight: 500; text-align: center;
+}
